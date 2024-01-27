@@ -53,6 +53,7 @@ const Problem1 = () => {
                 name="name"
               />
             </div>
+
             <div className="col-auto">
               <input
                 type="text"
@@ -61,6 +62,7 @@ const Problem1 = () => {
                 name="status"
               />
             </div>
+
             <div className="col-auto">
               <button type="submit" className="btn btn-primary">
                 Submit
@@ -68,6 +70,7 @@ const Problem1 = () => {
             </div>
           </form>
         </div>
+
         <div className="col-8">
           <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li className="nav-item">
@@ -79,6 +82,7 @@ const Problem1 = () => {
                 All
               </button>
             </li>
+
             <li className="nav-item">
               <button
                 className={`nav-link ${show === "active" && "active"}`}
@@ -88,6 +92,7 @@ const Problem1 = () => {
                 Active
               </button>
             </li>
+
             <li className="nav-item">
               <button
                 className={`nav-link ${show === "completed" && "active"}`}
@@ -105,6 +110,7 @@ const Problem1 = () => {
                 <th scope="col">Status</th>
               </tr>
             </thead>
+
             <tbody>
               {filterTasks().map((task, index) => (
                 <tr key={index}>

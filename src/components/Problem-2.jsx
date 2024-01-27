@@ -54,6 +54,7 @@ const Problem2 = () => {
         <AllContactModal allCountriesData={allCountriesData} />
       </div>
 
+      {/*<-------------- Modal Button of US Contact ------------>*/}
       <div
         className="modal fade"
         id="usContacts"
