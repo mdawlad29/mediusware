@@ -33,27 +33,34 @@ const Problem2 = () => {
               className="btn btn-lg btn-outline-primary"
               type="button"
               data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
+              data-bs-target="#allContact"
             >
               All Contacts
             </button>
-            <button className="btn btn-lg btn-outline-warning" type="button">
+
+            <button
+              type="button"
+              className="btn btn-lg btn-outline-warning"
+              data-bs-toggle="modal"
+              data-bs-target="#usContacts"
+            >
               US Contacts
             </button>
           </div>
         </div>
       </div>
 
+      {/*<-------------- Modal Button of All Contact ------------>*/}
       <div
         className="modal fade"
-        id="staticBackdrop"
+        id="allContact"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
         tabIndex="-1"
         // aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-xl">
+        <div className="modal-dialog modal-lg">
           <div className="modal-content">
             {/*<------------- Button Section ---------------->*/}
             <div className="modal-header">
@@ -61,7 +68,6 @@ const Problem2 = () => {
                 onClick={() => handleClick("button-a")}
                 type="button"
                 style={{
-                  color: "red",
                   border: "1px solid #46139f",
                   padding: "6px",
                   borderRadius: "7px",
@@ -75,7 +81,6 @@ const Problem2 = () => {
                 onClick={() => handleClick("button-b")}
                 type="button"
                 style={{
-                  color: "red",
                   border: "1px solid #ff7f50",
                   padding: "6px",
                   borderRadius: "7px",
@@ -222,12 +227,87 @@ const Problem2 = () => {
               <div className="modal-footer">
                 <button
                   type="button"
-                  className="btn btn-secondary"
                   data-bs-dismiss="modal"
+                  style={{
+                    border: "1px solid #46139f",
+                    paddingLeft: "20px",
+                    paddingRight: "20px",
+                    paddingTop: "7px",
+                    paddingBottom: "7px",
+                    borderRadius: "7px",
+                    background: "#46139f",
+                    color: "#fff",
+                  }}
                 >
                   Close
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/*<-------------- Modal Button of US Contact ------------>*/}
+
+      <div class="modal fade" id="usContacts" tabIndex="-2" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">
+                US Contact
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            {/*<------------- Content -------------->*/}
+            <div class="modal-body">
+              <table className="table table-striped ">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Country Name</th>
+                    <th scope="col">Phone</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {allCountriesData
+                    .filter(
+                      (country) => country.country.name === "United States"
+                    )
+                    .map((filteredCountry, index) => (
+                      <tr key={index}>
+                        <td>{filteredCountry.id}</td>
+                        <td>{filteredCountry?.country?.name}</td>
+                        <td>{filteredCountry?.phone}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/*<------------- Footer -------------->*/}
+            <div class="modal-footer">
+              <button
+                type="button"
+                data-bs-dismiss="modal"
+                style={{
+                  border: "1px solid #46139f",
+                  paddingLeft: "20px",
+                  paddingRight: "20px",
+                  paddingTop: "7px",
+                  paddingBottom: "7px",
+                  borderRadius: "7px",
+                  background: "#46139f",
+                  color: "#fff",
+                }}
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
